@@ -55,7 +55,3 @@ You can add as many rental locations as you want in the `Config.Rentals` table.
 2. Copy the structure from `EN.lua`.
 3. Translate the strings.
 4. Set `Config.Lang = 'FR'` in `config.lua`.
-
-## Support
-
-For issues or suggestions, please contact the developer.
