@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z5 Rental</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="rental-container" class="hidden">
+        <!-- Vehicle Menu -->
+        <div id="vehicle-menu" class="panel hidden">
+            <div class="panel-header">
+                <div class="header-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.5 2.8C1.4 11.3 1 12.1 1 13v3c0 .6.4 1 1 1h2" />
+                        <circle cx="7" cy="17" r="2" />
+                        <circle cx="17" cy="17" r="2" />
+                    </svg>
+                </div>
+                <h2 id="menu-title">Vehicle Rental</h2>
+                <button class="close-btn" onclick="closeMenu()">×</button>
+            </div>
+            <div class="panel-content">
+                <div id="vehicle-list"></div>
+            </div>
+            <div class="panel-footer">
+                <span class="footer-text" id="menu-footer-text">Select a vehicle to rent</span>
+            </div>
+        </div>
+
+        <!-- Input Dialog -->
+        <div id="input-dialog" class="panel hidden">
+            <div class="panel-header">
+                <div class="header-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                        <line x1="16" y1="2" x2="16" y2="6" />
+                        <line x1="8" y1="2" x2="8" y2="6" />
+                        <line x1="3" y1="10" x2="21" y2="10" />
+                    </svg>
+                </div>
+                <h2 id="input-title">Rental Duration</h2>
+                <button class="close-btn" onclick="closeInput()">×</button>
+            </div>
+            <div class="panel-content">
+                <div class="input-group">
+                    <label for="rental-hours" id="label-duration">Duration (Hours)</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="rental-hours" min="1" value="1" placeholder="Enter hours...">
+                        <div class="spin-buttons">
+                            <button class="spin-btn" id="hours-up" onclick="adjustHours(1)">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M18 15l-6-6-6 6" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                            <button class="spin-btn" id="hours-down" onclick="adjustHours(-1)">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                        </div>
+                        <span class="input-suffix" id="label-suffix-hrs">hrs</span>
+                    </div>
+                    <div class="price-display">
+                        <span id="label-price-per-hour">Price per hour:</span>
+                        <span id="price-per-hour">$0</span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label id="label-payment-method">Payment Method</label>
+                    <div class="payment-options">
+                        <div class="payment-option selected" data-value="cash">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="6" width="20" height="12" rx="2" />
+                                <circle cx="12" cy="12" r="2" />
+                                <path d="M6 12h.01M18 12h.01" />
+                            </svg>
+                            <span id="label-cash">Cash</span>
+                        </div>
+                        <div class="payment-option" data-value="bank">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="5" width="18" height="14" rx="2" />
+                                <path d="M3 10h18" />
+                            </svg>
+                            <span id="label-bank">Bank</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="total-section">
+                    <div class="total-row">
+                        <span id="label-total-amount">Total Amount</span>
+                        <span id="total-price" class="total-amount">$0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <button class="btn btn-cancel" id="btn-cancel" onclick="closeInput()">Cancel</button>
+                <button class="btn btn-confirm" id="btn-confirm" onclick="confirmRental()">Confirm Rental</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
